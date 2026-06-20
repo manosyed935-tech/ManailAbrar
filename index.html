@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manail Abrar | Civil & Project Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root { --primary: #0f172a; --primary-light: #1e293b; --accent: #f59e0b; --accent-light: #fbbf24; --text: #334155; --text-light: #64748b; --bg: #ffffff; --bg-light: #f8fafc; --border: #e2e8f0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background: var(--bg); }
+
+/* Navigation */
+nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--primary); }
+.mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 5% 4rem; background: linear-gradient(135deg, var(--primary) 0%, #1e3a5f 50%, #2c5282 100%); position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.hero-content h3 { color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: white; line-height: 1.1; margin-bottom: 1rem; }
+.hero-content h1 span { color: var(--accent); }
+.hero-content .tagline { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+.hero-stats { display: flex; gap: 3rem; margin-bottom: 2rem; }
+.stat-item h4 { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+.stat-item p { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+.badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; }
+.hero-buttons { display: flex; gap: 1rem; }
+.btn { padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background: var(--accent); color: var(--primary); }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(245,158,11,0.3); }
+.btn-outline { border: 2px solid rgba(255,255,255,0.3); color: white; background: transparent; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.hero-image { position: relative; display: flex; justify-content: center; }
+.hero-image img { width: 350px; height: 450px; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.1); }
+.hero-image::before { content: ''; position: absolute; top: -20px; right: -20px; width: 350px; height: 450px; border: 3px solid var(--accent); border-radius: 20px; z-index: -1; }
+
+/* Sections */
+section { padding: 5rem 5%; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h3 { color: var(--accent); font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+.section-header p { color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+/* About */
+.about { background: var(--bg-light); }
+.about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.about-text h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary); }
+.about-text p { color: var(--text-light); margin-bottom: 1.2rem; }
+.about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.highlight-item { display: flex; align-items: flex-start; gap: 1rem; }
+.highlight-item i { font-size: 1.2rem; color: var(--accent); margin-top: 0.2rem; }
+.highlight-item h4 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--primary); }
+.highlight-item p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+
+/* Certifications */
+.about-certifications { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.about-certifications h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+.cert-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--border); }
+.cert-item:last-child { border-bottom: none; }
+.cert-item i { font-size: 1.5rem; color: var(--primary); }
+.cert-item div h4 { font-size: 0.95rem; color: var(--primary); }
+.cert-item div p { font-size: 0.8rem; color: var(--text-light); }
+
+/* Experience Timeline */
+.timeline { max-width: 1000px; margin: 0 auto; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--accent), var(--primary)); }
+.timeline-item { display: flex; justify-content: flex-end; padding-right: 3rem; position: relative; margin-bottom: 3rem; width: 50%; }
+.timeline-item:nth-child(even) { justify-content: flex-start; padding-left: 3rem; padding-right: 0; margin-left: 50%; }
+.timeline-dot { position: absolute; right: -8px; top: 0; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--accent); }
+.timeline-item:nth-child(even) .timeline-dot { right: auto; left: -8px; }
+.timeline-content { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border); max-width: 420px; }
+.timeline-content .date { color: var(--accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
+.timeline-content h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.3rem; }
+.timeline-content .company { color: var(--primary-light); font-weight: 500; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.timeline-content .project { background: var(--bg-light); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; color: var(--primary); font-weight: 500; margin-bottom: 1rem; display: inline-block; }
+.timeline-content ul { list-style: none; padding: 0; }
+.timeline-content ul li { padding: 0.3rem 0; font-size: 0.85rem; color: var(--text-light); padding-left: 1.2rem; position: relative; }
+.timeline-content ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+/* Projects */
+.projects { background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
+.projects .section-header h2, .projects .section-header h3, .projects .section-header p { color: white; }
+.projects .section-header p { opacity: 0.8; }
+.projects-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.project-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; transition: all 0.3s; }
+.project-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
+.project-card .project-icon { width: 50px; height: 50px; background: rgba(245,158,11,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.project-card .project-icon i { font-size: 1.5rem; color: var(--accent); }
+.project-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.project-card .project-value { color: var(--accent); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.project-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.project-tags span { background: rgba(255,255,255,0.1); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; color: rgba(255,255,255,0.8); }
+.project-links a { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+.project-links a:hover { color: white; }
+
+/* EOT Portfolio */
+.eot-portfolio { background: var(--bg-light); }
+.eot-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.eot-preview { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+.eot-preview-header { background: var(--primary); color: white; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+.eot-preview-header i { font-size: 2rem; }
+.eot-preview-header h3 { font-size: 1.1rem; }
+.eot-preview-header p { font-size: 0.8rem; opacity: 0.8; }
+.eot-preview-body { padding: 2rem; }
+.eot-detail { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.eot-detail:last-child { border-bottom: none; }
+.eot-detail span { color: var(--text-light); font-size: 0.9rem; }
+.eot-detail strong { color: var(--primary); }
+.eot-status { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(5,150,105,0.1); color: var(--success); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-top: 1rem; }
+.eot-content h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+.eot-content > p { color: var(--text-light); margin-bottom: 2rem; }
+.eot-features { display: grid; gap: 1.5rem; }
+.eot-feature { display: flex; gap: 1rem; align-items: flex-start; }
+.eot-feature i { font-size: 1.2rem; color: var(--accent); margin-top: 0.2rem; }
+.eot-feature h4 { font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem; }
+.eot-feature p { font-size: 0.85rem; color: var(--text-light); }
+
+/* Skills */
+.skills { background: white; }
+.skills-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.skill-category { background: var(--bg-light); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); }
+.skill-category h3 { display: flex; align-items: center; gap: 0.8rem; font-size: 1.1rem; color: var(--primary); margin-bottom: 1.5rem; }
+.skill-category h3 i { color: var(--accent); }
+.skill-item { margin-bottom: 1.2rem; }
+.skill-item:last-child { margin-bottom: 0; }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+.skill-header span { font-size: 0.9rem; color: var(--primary); font-weight: 500; }
+.skill-header strong { font-size: 0.85rem; color: var(--accent); }
+.skill-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px; transition: width 1s ease; }
+
+/* FYP */
+.fyp { background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); color: white; }
+.fyp .section-header h2, .fyp .section-header h3, .fyp .section-header p { color: white; }
+.fyp .section-header p { opacity: 0.8; }
+.fyp-container { max-width: 1000px; margin: 0 auto; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.fyp-content h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.fyp-content p { opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.8; }
+.fyp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.fyp-stat { background: rgba(255,255,255,0.1); padding: 1.2rem; border-radius: 12px; text-align: center; }
+.fyp-stat h4 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.fyp-stat p { font-size: 0.8rem; opacity: 0.8; }
+.fyp-tools { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+.fyp-tools span { background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; }
+
+/* Contact */
+.contact { background: var(--primary); color: white; text-align: center; }
+.contact h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+.contact > p { color: rgba(255,255,255,0.7); margin-bottom: 3rem; }
+.contact-grid { max-width: 800px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.contact-item { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+.contact-item i { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
+.contact-item h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+.contact-item p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+.contact-item a { color: var(--accent); text-decoration: none; }
+.social-links { display: flex; justify-content: center; gap: 1rem; }
+.social-links a { width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; transition: all 0.3s; text-decoration: none; }
+.social-links a:hover { background: var(--accent); color: var(--primary); transform: translateY(-3px); }
+
+/* Footer */
+footer { background: var(--primary-light); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.85rem; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+.hero-container { grid-template-columns: 1fr; text-align: center; }
+.hero-image { order: -1; }
+.hero-image img { width: 300px; height: 380px; }
+.hero-stats { justify-content: center; }
+.hero-buttons { justify-content: center; }
+.about-container { grid-template-columns: 1fr; }
+.eot-container { grid-template-columns: 1fr; }
+.fyp-container { grid-template-columns: 1fr; }
+.timeline::before { left: 20px; }
+.timeline-item { width: 100%; padding-left: 3rem; padding-right: 0; }
+.timeline-item:nth-child(even) { margin-left: 0; padding-left: 3rem; }
+.timeline-dot { left: 12px !important; right: auto !important; }
+}
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.mobile-menu { display: block; }
+.hero-content h1 { font-size: 2.5rem; }
+.section-header h2 { font-size: 2rem; }
+.contact-grid { grid-template-columns: 1fr; }
+.about-highlights { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Manail<span>.</span></div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#eot">EOT Portfolio</a></li>
+        <li><a href="#fyp">FYP</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+</nav>
+
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h3>Civil & Project Engineer</h3>
+            <h1>Manail <span>Abrar</span></h1>
+            <p class="tagline">Planning & Scheduling Engineer | PKR 70B+ Infrastructure | FIDIC & EVM Specialist | PEC Registered | PTE 70 (C1)</p>
+            <div class="hero-stats">
+                <div class="stat-item"><h4>70B+</h4><p>PKR Projects</p></div>
+                <div class="stat-item"><h4>4.5+</h4><p>Years Experience</p></div>
+                <div class="stat-item"><h4>70</h4><p>PTE Score (C1)</p></div>
+            </div>
+            <div class="hero-badges">
+                <span class="badge"><i class="fas fa-hard-hat"></i> PEC Registered</span>
+                <span class="badge"><i class="fas fa-certificate"></i> ACI Member</span>
+                <span class="badge"><i class="fas fa-users"></i> CMAA Member</span>
+                <span class="badge"><i class="fas fa-file-contract"></i> FIDIC Certified</span>
+                <span class="badge"><i class="fas fa-chart-line"></i> EVM Expert</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Projects</a>
+                <a href="mailto:Manailabrar1@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="PICTURE.jpeg" alt="Manail Abrar - Civil Engineer">
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="section-header">
+        <h3>About Me</h3>
+        <h2>Engineering Excellence with Purpose</h2>
+        <p>Civil Engineer with a passion for sustainable infrastructure, project controls, and risk management.</p>
+    </div>
+    <div class="about-container">
+        <div class="about-text">
+            <h3>Driving Infrastructure Forward</h3>
+            <p>I am a <strong>PEC-Registered Civil Engineer</strong> with 4.5+ years of progressive experience in project planning, EVM, EOT claims, and site supervision across <strong>PKR 70+ billion</strong> of active infrastructure delivery.</p>
+            <p>Currently serving as <strong>Planning & Scheduling Engineer</strong> on the Faisalabad Orange Line Metro (PKR 60B) — Pakistan's most ambitious mass transit corridor.</p>
+            <p>My cross-sector portfolio spans mass transit, smart cities, dam tunnelling, bridge reconstruction, and highway corridors. I bring expertise in <strong>Primavera P6, Power BI, SAP2000, CSI Bridge</strong>, and FIDIC contract management.</p>
+            <div class="about-highlights">
+                <div class="highlight-item"><i class="fas fa-graduation-cap"></i><div><h4>BSc Civil Engineering</h4><p>UET Peshawar, Grade A, Washington Accord</p></div></div>
+                <div class="highlight-item"><i class="fas fa-language"></i><div><h4>English C1 Level</h4><p>PTE Academic Score: 70</p></div></div>
+                <div class="highlight-item"><i class="fas fa-award"></i><div><h4>Top Performer</h4><p>Generative AI Training, PEC + Pak Angels</p></div></div>
+                <div class="highlight-item"><i class="fas fa-globe"></i><div><h4>Global Standards</h4><p>FIDIC, PPRA 2017, AISC</p></div></div>
+            </div>
+        </div>
+        <div class="about-certifications">
+            <h3><i class="fas fa-certificate"></i> Certifications & Memberships</h3>
+            <div class="cert-item"><i class="fas fa-id-card"></i><div><h4>Pakistan Engineering Council (PEC)</h4><p>Registered Engineer | Jan 2022 – Present</p></div></div>
+            <div class="cert-item"><i class="fas fa-building"></i><div><h4>American Concrete Institute (ACI)</h4><p>Certified Member | Sep 2024 – Sep 2026</p></div></div>
+            <div class="cert-item"><i class="fas fa-hard-hat"></i><div><h4>Construction Management Association of America (CMAA)</h4><p>Member</p></div></div>
+            <div class="cert-item"><i class="fas fa-file-contract"></i><div><h4>FIDIC Contracts Awareness</h4><p>Red Book & Yellow Book Compliance</p></div></div>
+            <div class="cert-item"><i class="fas fa-calendar-alt"></i><div><h4>Primavera P6 Advanced Scheduling</h4><p>Resource-loaded baselines, S-curves</p></div></div>
+            <div class="cert-item"><i class="fas fa-robot"></i><div><h4>Generative AI for Engineers</h4><p>PEC + Pak Angels | Top Performer (2024)</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="experience" id="experience">
+    <div class="section-header">
+        <h3>Career Journey</h3>
+        <h2>Professional Experience</h2>
+        <p>Progressive growth from site engineer to planning & scheduling lead on Pakistan's mega infrastructure projects.</p>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">April 2026 – Present</div>
+                <h3>Planning & Scheduling Engineer</h3>
+                <div class="company">Habib Construction Services (Pvt) Ltd</div>
+                <span class="project"><i class="fas fa-subway"></i> Faisalabad Orange Line Metro | PKR 60 Billion</span>
+                <ul>
+                    <li>Resource-loaded baseline schedules & S-curves in Primavera P6</li>
+                    <li>EOT claims with Time Impact Analysis (TIA) — FIDIC Red Book</li>
+                    <li>HSE Plan (HSC Plan) approved by PMA & NESPAK</li>
+                    <li>Construction methodology for elevated viaduct & at-grade stations</li>
+                    <li>Power BI EVM dashboards (CPI, SPI, SV, CV)</li>
+                    <li>9.2 km mass transit corridor coordination</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">June 2025 – Present</div>
+                <h3>Project & Planning Engineer</h3>
+                <div class="company">Habib Construction Services (Pvt) Ltd</div>
+                <span class="project"><i class="fas fa-city"></i> NSIT City | PKR 10+ Billion</span>
+                <ul>
+                    <li>Baseline schedules & S-curves for 853-acre smart-city corridor</li>
+                    <li>EOT claims with TIA for Packages 2 & 3</li>
+                    <li>Power BI EVM dashboards — reduced reporting time by 30%</li>
+                    <li>500+ correspondence items management (NESPAK ↔ CBD)</li>
+                    <li>DPM reports, recovery schedules, executive presentations</li>
+                    <li>EAC/VAC tracking against approved budget baselines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">June 2024 – June 2025</div>
+                <h3>Junior Civil Engineer</h3>
+                <div class="company">Water & Power Development Authority (WAPDA)</div>
+                <span class="project"><i class="fas fa-water"></i> Tarbela Dam 5th Extension</span>
+                <ul>
+                    <li>Construction progress monitoring: 24% physical vs 71.55% financial</li>
+                    <li>Monthly PC-3 reports against PSDP/PC-1 values</li>
+                    <li>WBS development for weekly progress reporting</li>
+                    <li>QGIS/HEC-HMS hydrological feasibility for Sindh Barrage</li>
+                    <li>Peak flood data analysis</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">June 2023 – June 2024</div>
+                <h3>Quantity Estimation Engineer</h3>
+                <div class="company">Syed Shahpir & Construction Company</div>
+                <span class="project"><i class="fas fa-calculator"></i> PKR 13M Cost Plan</span>
+                <ul>
+                    <li>Delivered cost plan with &lt;2% variance vs final contractor prices</li>
+                    <li>PPRA 2017 & FIDIC-compliant procurement</li>
+                    <li>Identified 3 pre-tender risks reducing contingency</li>
+                    <li>BOQ preparation & rate analysis</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">June 2022 – June 2023</div>
+                <h3>Graduate Trainee Engineer</h3>
+                <div class="company">Pakhtunkhwa Highways Authority</div>
+                <span class="project"><i class="fas fa-bridge"></i> Pir Bala Bridge Reconstruction | PKR 80M</span>
+                <ul>
+                    <li>Supervised all construction phases</li>
+                    <li>Resolved 12+ technical site issues</li>
+                    <li>Delivered within programme</li>
+                    <li>PPRA-compliant procurement (80% technical / 20% financial)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="date">August 2021 – June 2022</div>
+                <h3>Site Engineer</h3>
+                <div class="company">Tariq & Tasneem Construction</div>
+                <span class="project"><i class="fas fa-university"></i> FATA University Academic Block | PKR 300M</span>
+                <ul>
+                    <li>Oversaw all construction phases</li>
+                    <li>Coordinated 40+ subcontractors</li>
+                    <li>Improved on-site productivity by 70% vs prior year</li>
+                    <li>SAP2000 structural analysis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects" id="projects">
+    <div class="section-header">
+        <h3>Portfolio</h3>
+        <h2>Key Projects</h2>
+        <p>Mega-scale infrastructure delivering sustainable, FIDIC-compliant solutions across Pakistan's most critical developments.</p>
+    </div>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-subway"></i></div>
+            <h3>Faisalabad Orange Line Metro</h3>
+            <div class="project-value">PKR 60 Billion</div>
+            <p>Pakistan's most ambitious mass transit corridor — 9.2 km elevated viaduct, at-grade stations, depots, drainage, utilities, ICT, HVAC, firefighting & solar systems.</p>
+            <div class="project-tags"><span>Primavera P6</span><span>FIDIC Red Book</span><span>EVM</span><span>HSE Plan</span><span>Power BI</span></div>
+            <div class="project-links"><a href="#eot"><i class="fas fa-file-alt"></i> View EOT Portfolio</a></div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-city"></i></div>
+            <h3>NSIT City Smart Corridor</h3>
+            <div class="project-value">PKR 10+ Billion</div>
+            <p>853-acre smart-city infrastructure development with real-time EVM dashboards, reducing reporting cycle time by 30%.</p>
+            <div class="project-tags"><span>Smart City</span><span>Power BI</span><span>EVM</span><span>EOT Claims</span><span>Primavera P6</span></div>
+            <div class="project-links"><a href="#eot"><i class="fas fa-file-alt"></i> View EOT Portfolio</a></div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-water"></i></div>
+            <h3>Tarbela Dam 5th Extension</h3>
+            <div class="project-value">PSDP Mega Project</div>
+            <p>Monitored 24% physical vs 71.55% financial completion. Prepared monthly PC-3 reports, WBS development, and QGIS/HEC-HMS studies.</p>
+            <div class="project-tags"><span>Dam Engineering</span><span>QGIS</span><span>HEC-HMS</span><span>PC-3 Reports</span><span>WBS</span></div>
+            <div class="project-links"><a href="#"><i class="fas fa-lock"></i> Confidential</a></div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-bridge"></i></div>
+            <h3>Pir Bala Bridge Reconstruction</h3>
+            <div class="project-value">PKR 80 Million</div>
+            <p>Complete bridge reconstruction supervision with 12+ technical issues resolved and PPRA-compliant procurement.</p>
+            <div class="project-tags"><span>Bridge Design</span><span>Site Supervision</span><span>PPRA 2017</span><span>Quality Control</span></div>
+            <div class="project-links"><a href="#"><i class="fas fa-lock"></i> Confidential</a></div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-university"></i></div>
+            <h3>FATA University Academic Block</h3>
+            <div class="project-value">PKR 300 Million</div>
+            <p>HEC-sponsored academic building with 40+ subcontractor coordination, SAP2000 structural analysis, and 70% productivity improvement.</p>
+            <div class="project-tags"><span>HEC Project</span><span>SAP2000</span><span>Subcontract Management</span><span>AutoCAD</span></div>
+            <div class="project-links"><a href="#"><i class="fas fa-lock"></i> Confidential</a></div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon"><i class="fas fa-leaf"></i></div>
+            <h3>Volunteer Flood-Resilience GIS</h3>
+            <div class="project-value">Community Impact</div>
+            <p>QGIS flood-risk maps for 12 Union Councils using Sentinel-2 imagery. Ground-truthing across 15 villages with KP Forest Department.</p>
+            <div class="project-tags"><span>QGIS</span><span>Sentinel-2</span><span>Flood Risk</span><span>Community</span></div>
+            <div class="project-links"><a href="#"><i class="fas fa-globe"></i> View on Maps</a></div>
+        </div>
+    </div>
+</section>
+
+<section class="eot-portfolio" id="eot">
+    <div class="section-header">
+        <h3>Project Controls</h3>
+        <h2>EOT Claim Portfolio</h2>
+        <p>FIDIC-compliant Extension of Time claims with Time Impact Analysis — approved by client and consultant.</p>
+    </div>
+    <div class="eot-container">
+        <div class="eot-preview">
+            <div class="eot-preview-header">
+                <i class="fas fa-file-contract"></i>
+                <div><h3>Claim No. 01 — Interim EOT</h3><p>NSIT City Phase-1 (Package-2) | HCS/NSIT/INF/02/1220</p></div>
+            </div>
+            <div class="eot-preview-body">
+                <div class="eot-detail"><span>Project</span><strong>Infrastructure Development at NSIT City</strong></div>
+                <div class="eot-detail"><span>Client</span><strong>Punjab CBD Development Authority (PCBDDA)</strong></div>
+                <div class="eot-detail"><span>Consultant</span><strong>NESPAK</strong></div>
+                <div class="eot-detail"><span>Contractor</span><strong>Habib Construction Services Ltd</strong></div>
+                <div class="eot-detail"><span>FIDIC Clause</span><strong>Sub-Clause 37 (Extension of Time)</strong></div>
+                <div class="eot-detail"><span>Methodology</span><strong>Time Impact Analysis (TIA)</strong></div>
+                <div class="eot-detail"><span>Date Submitted</span><strong>February 04, 2026</strong></div>
+                <div class="eot-detail"><span>Signed By</span><strong>Kazim Nawaz, Project Manager</strong></div>
+                <div class="eot-status"><i class="fas fa-check-circle"></i> Submitted & Under Review</div>
+            </div>
+        </div>
+        <div class="eot-content">
+            <h3>FIDIC-Compliant Delay Analysis</h3>
+            <p>This portfolio demonstrates my expertise in contractual delay analysis, Time Impact Analysis (TIA), and FIDIC Red Book compliance — core competencies for the NORISK Erasmus Mundus program.</p>
+            <div class="eot-features">
+                <div class="eot-feature"><i class="fas fa-chart-gantt"></i><div><h4>Time Impact Analysis (TIA)</h4><p>Impacted schedule preparation showing delay events, concurrent delays, and entitlement calculations using Primavera P6.</p></div></div>
+                <div class="eot-feature"><i class="fas fa-balance-scale"></i><div><h4>FIDIC Red Book Compliance</h4><p>Sub-Clause 37 notification, detailed particulars, interim determination requests — all procedurally correct.</p></div></div>
+                <div class="eot-feature"><i class="fas fa-file-signature"></i><div><h4>Contractual Documentation</h4><p>Complete claim narrative with supporting records, delay event chronology, and entitlement substantiation.</p></div></div>
+                <div class="eot-feature"><i class="fas fa-users"></i><div><h4>Stakeholder Coordination</h4><p>Direct coordination with PCBDDA (client), NESPAK (consultant), and HCS project management.</p></div></div>
+            </div>
+            <div style="margin-top: 2rem;"><a href="#" class="btn btn-primary" style="background: var(--primary); color: white;"><i class="fas fa-download"></i> Download EOT Portfolio (PDF)</a></div>
+        </div>
+    </div>
+</section>
+
+<section class="skills" id="skills">
+    <div class="section-header">
+        <h3>Expertise</h3>
+        <h2>Technical Skills</h2>
+        <p>Proficiency across project controls, structural analysis, and sustainable construction technologies.</p>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3><i class="fas fa-project-diagram"></i> Planning & Scheduling</h3>
+            <div class="skill-item"><div class="skill-header"><span>Primavera P6</span><strong>95%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>MS Project</span><strong>85%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>WBS Development</span><strong>90%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>Critical Path Analysis</span><strong>92%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div></div>
+        </div>
+        <div class="skill-category">
+            <h3><i class="fas fa-chart-line"></i> EVM & Analytics</h3>
+            <div class="skill-item"><div class="skill-header"><span>Power BI</span><strong>90%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>CPI/SPI Analysis</span><strong>95%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>EAC/VAC Forecasting</span><strong>88%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 88%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>S-Curves & Trend Analysis</span><strong>90%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></div>
+        </div>
+        <div class="skill-category">
+            <h3><i class="fas fa-file-contract"></i> Contract & Claims</h3>
+            <div class="skill-item"><div class="skill-header"><span>FIDIC Red Book</span><strong>92%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>EOT Claim Preparation</span><strong>90%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>Time Impact Analysis</span><strong>88%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 88%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>PPRA 2017 Procurement</span><strong>85%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div></div>
+        </div>
+        <div class="skill-category">
+            <h3><i class="fas fa-drafting-compass"></i> Design & Analysis</h3>
+            <div class="skill-item"><div class="skill-header"><span>AutoCAD 2D/3D</span><strong>90%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>SAP2000</span><strong>85%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>CSI Bridge</span><strong>82%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 82%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>QGIS & HEC-HMS</span><strong>80%</strong></div><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="fyp" id="fyp">
+    <div class="section-header">
+        <h3>Research</h3>
+        <h2>Final Year Project</h2>
+        <p>Innovative sustainable materials research with real-world structural applications.</p>
+    </div>
+    <div class="fyp-container">
+        <div class="fyp-content">
+            <h3>Lightweight Concrete Bridge Design</h3>
+            <p>Investigated the use of <strong>irradiated plastic waste and coconut shell aggregates</strong> as partial replacements for conventional coarse aggregates in concrete bridge construction. The study achieved a <strong>20% reduction in concrete weight</strong> while maintaining full structural integrity.</p>
+            <div class="fyp-stats">
+                <div class="fyp-stat"><h4>20%</h4><p>Weight Reduction</p></div>
+                <div class="fyp-stat"><h4>A</h4><p>Grade Achieved</p></div>
+                <div class="fyp-stat"><h4>100%</h4><p>Structural Integrity</p></div>
+                <div class="fyp-stat"><h4>2021</h4><p>Completion Year</p></div>
+            </div>
+            <div class="fyp-tools">
+                <span><i class="fas fa-bridge"></i> CSI Bridge</span>
+                <span><i class="fas fa-drafting-compass"></i> AutoCAD</span>
+                <span><i class="fas fa-calculator"></i> Structural Analysis</span>
+                <span><i class="fas fa-recycle"></i> Sustainable Materials</span>
+                <span><i class="fas fa-flask"></i> Mix Design</span>
+            </div>
+            <a href="#" class="btn btn-primary" style="background: var(--accent); color: var(--primary);"><i class="fas fa-external-link-alt"></i> View FYP Documents</a>
+        </div>
+        <div class="fyp-visual">
+            <div class="fyp-badge"><i class="fas fa-award"></i><div>Grade A</div><small style="font-weight: 400; opacity: 0.8;">UET Peshawar</small></div>
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 16px; text-align: center; width: 100%;"><i class="fas fa-bridge" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i><h4 style="margin-bottom: 0.5rem;">Bridge Model</h4><p style="font-size: 0.85rem; opacity: 0.8;">Full structural analysis with load combinations, deflection checks, and reinforcement design.</p></div>
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 16px; text-align: center; width: 100%;"><i class="fas fa-recycle" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i><h4 style="margin-bottom: 0.5rem;">Sustainable Innovation</h4><p style="font-size: 0.85rem; opacity: 0.8;">Recycled plastic + agricultural waste = reduced embodied carbon in infrastructure.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Let's Connect</h2>
+    <p>Interested in collaborating or discussing Erasmus Mundus 2027 opportunities?</p>
+    <div class="contact-grid">
+        <div class="contact-item"><i class="fas fa-envelope"></i><h4>Email</h4><p><a href="mailto:Manailabrar1@gmail.com">Manailabrar1@gmail.com</a></p></div>
+        <div class="contact-item"><i class="fas fa-phone"></i><h4>Phone</h4><p>+92 346 2761409</p></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><h4>Location</h4><p>70/2 Saqib Town, Lahore, Pakistan</p></div>
+    </div>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:Manailabrar1@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+</section>
+
+<footer>
+    <p> Manail Abrar. Civil & Project Engineer. Built with passion for sustainable infrastructure.</p>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+const observerOptions = { threshold: 0.5 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.style.width;
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.skill-bar-fill').forEach(bar => { observer.observe(bar); });
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) { nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)'; }
+    else { nav.style.boxShadow = 'none'; }
+});
+</script>
+
+</body>
+</html>
